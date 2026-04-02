@@ -1,0 +1,1 @@
+This is a project for FAST API full application development.

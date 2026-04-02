@@ -1,0 +1,5 @@
+To run this project u need to install all the requirements.
+
+frontend to be run in different terminal - using the command npm install and then npm start
+
+for backend we have to run it as --> python main.py and then --> uvicorn main:app --reload

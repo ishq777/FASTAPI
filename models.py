@@ -1,6 +1,11 @@
 from pydantic import BaseModel
 
-class Product(BaseModel):
+try:
+    from pydantic import ConfigDict
+except ImportError:
+    ConfigDict = None
+
+class Product(BaseModel): 
 
     id:int
     name:str
@@ -8,10 +13,9 @@ class Product(BaseModel):
     price:float
     quantity:int
 
-    
-    # def __init__(self, id: int, name: str, description: str, price: float, quantity: int):
-    #     self.id = id
-    #     self.name = name
-    #     self.description= description
-    #     self.price = price
-    #     self.quantity = quantity
+    if ConfigDict is not None:
+        model_config = ConfigDict(from_attributes=True)
+    else:
+        class Config:
+            orm_mode = True
+
